@@ -147,19 +147,4 @@ class Sso {
         return $this->getCurrentUser();
     }
 
-    public function logout()
-    {
-        if(phpCAS::isSessionAuthenticated()) {
-            if ($this->auth->check())
-            {
-                // Logout of laravel
-                $this->auth->logout();
-            }
-            // Logout of CAS
-            $this->session->flush();
-            phpCAS::logout();
-            exit;
-        }
-    }
-
 }
